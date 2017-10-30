@@ -51,6 +51,11 @@
     <Compile Include="Burgers\NewYorkPorkBurger.cs" />
     <Compile Include="Burgers\TaipeiChickenBurger.cs" />
     <Compile Include="Burgers\TaipeiPorkBurger.cs" />
+    <Compile Include="Factorys\FactoryMethod\IFactoryMethod.cs" />
+    <Compile Include="Factorys\FactoryMethod\NewYorkChickenBurgerFactory.cs" />
+    <Compile Include="Factorys\FactoryMethod\NewYorkPorkBurgerFactory.cs" />
+    <Compile Include="Factorys\FactoryMethod\TaipeiChickenBurgerFactory.cs" />
+    <Compile Include="Factorys\FactoryMethod\TaipeiPorkBurgerFactory.cs" />
     <Compile Include="Meats\Bacon.cs" />
     <Compile Include="Meats\Meat.cs" />
     <Compile Include="Meats\TaiwanChicken.cs" />
