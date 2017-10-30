@@ -7,6 +7,7 @@ using NineYi.BurgerShop.Burgers;
 using NineYi.BurgerShop.Breads;
 using NineYi.BurgerShop.Veggies;
 using NineYi.BurgerShop.Meats;
+using NineYi.BurgerShop.Factorys;
 
 namespace NineYi.BurgerShop
 {
@@ -23,48 +24,33 @@ namespace NineYi.BurgerShop
             int burgerChoice = int.Parse(Console.ReadLine());
 
             //// 2. 準備漢堡
-
+            IFactoryMethod factory;
             Burger burger = null;
 
             if (shopChoice == 1 && burgerChoice == 1)
             {
-                burger = new TaipeiChickenBurger();
-
-                //// 備料
-                burger.Bread = new WhiteBread();
-                burger.Veggie = new Tomato();
-                burger.Meat = new TaiwanChicken();
+                factory = new TaipeiChickenBurgerFactory();
             }
             else if (shopChoice == 1 && burgerChoice == 2)
             {
-                burger = new TaipeiPorkBurger();
-
-                //// 備料
-                burger.Bread = new WhiteBread();
-                burger.Veggie = new Tomato();
-                burger.Meat = new Tenderloin();
+                factory = new TaipeiPorkBurgerFactory();
             }
             else if (shopChoice == 2 && burgerChoice == 1)
             {
-                burger = new NewYorkChickenBurger();
-
-                //// 備料
-                burger.Bread = new WheatBread();
-                burger.Veggie = new Onion();
-                burger.Meat = new Turkey();
+                factory = new NewYorkChickenBurgerFactory();
             }
             else if(shopChoice == 2 && burgerChoice == 2)
             {
-                burger = new NewYorkPorkBurger();
-
-                //// 備料
-                burger.Bread = new WheatBread();
-                burger.Veggie = new Onion();
-                burger.Meat = new Bacon();
+                factory = new NewYorkPorkBurgerFactory();
+            }
+            else
+            {
+                throw new AggregateException("No such shop or burger!");
             }
 
-            //// 3. 烹飪漢堡
+            burger = factory.CreateBurger();
 
+            //// 3. 烹飪漢堡
             burger.Cook();
         }
     }
